@@ -1,6 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
+import mysql from 'mysql';
 
 import routes from './routes';
 
@@ -14,8 +15,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // Importing routes from dir ./routes
 app.use('/', routes);
 console.log(`Listening: http://localhost:${process.env.APP_PORT || '3000'}/`);
-console.log(process.env.DB_HOST)
-const mysql = require('mysql')
+
 const connection = mysql.createConnection({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
