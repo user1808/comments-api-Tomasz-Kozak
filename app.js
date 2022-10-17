@@ -16,10 +16,11 @@ console.log(`Listening: http://localhost:${process.env.APP_PORT || '3000'}/`);
 
 sequelize.sync()
   .then(() => {
-    console.log("Synced db.");
+    console.log("Synced database.");
   })
   .catch((err) => {
-    console.log("Failed to sync db: " + err.message);
-  });
+    console.log("Failed to sync database: " + err.message);
+  }
+);
 
 module.exports = app;
