@@ -10,7 +10,9 @@ const sequelize = new Sequelize(config.db.database, config.db.user, config.db.pa
     dialectModule: mysql2,
 })
 
-sequelize.define(COMMENTS_TABLE_NAME, Comment)
+sequelize.define(COMMENTS_TABLE_NAME, Comment, {
+    updatedAt: false,
+})
 
 module.exports = {
     sequelize,
