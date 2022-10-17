@@ -7,13 +7,16 @@ const Comment = {
         primaryKey: true
     },
     message: {
-        type: DataTypes.TEXT
+        type: DataTypes.TEXT,
+        allowNull: false,
     },
     author: {
         type: DataTypes.STRING,
+        allowNull: false,
     },
     createdAt: {
-        type: DataTypes.DATE
+        type: DataTypes.DATE,
+        allowNull: false,
     }
 }
 
