@@ -15,7 +15,10 @@ const checkItemStructure = function (item) {
 };
 
 it('endpoint POST /comments', async () => {
-  const comment = {};
+  const comment = {
+    message: 'Test',
+    author: 'Test',
+  };
   const response = await request.post('/comments').send(comment).expect(200);
   const body = JSON.parse(response.text);
   checkItemStructure(body);
