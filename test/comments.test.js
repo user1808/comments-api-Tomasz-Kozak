@@ -9,9 +9,10 @@ const checkItemStructure = function (item) {
       id: expect.any(Number),
       message: expect.any(String),
       author: expect.any(String),
-      createdAt: expect.any(Date),
+      createdAt: expect.any(String),
     })
   );
+  expect(new Date(item.createdAt)).toBeInstanceOf(Date);
 };
 
 it('endpoint POST /comments', async () => {
