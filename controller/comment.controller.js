@@ -1,4 +1,5 @@
 import { comments } from '../db/sequelize';
+import { isValidISODateString } from 'iso-datestring-validator';
 
 exports.findAll = (req, res) => {
     comments.findAll()
@@ -14,6 +15,11 @@ exports.create = (req, res) => {
 
     if (typeof req.body.author !== 'string') {
         res.status(400).send({ message: 'Author name must be a string' });
+        return;
+    }
+
+    if (req.body.createdAt && (typeof req.body.createdAt !== 'string' || !isValidISODateString(req.body.createdAt))) {
+        res.status(400).send({ message: 'Created At date format is not valid (must be ISO 8601)' });
         return;
     }
 
