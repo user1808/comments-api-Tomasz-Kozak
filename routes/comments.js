@@ -1,14 +1,10 @@
 import express from 'express';
-import Comment from '../db/Comment';
+import comments from '../controller/comment.controller';
 
 const router = express.Router();
 
-router.get('/', (req, res) => {
-    res.send(Comment.findAll(req, res));
-});
+router.get('/', (req, res) => comments.findAll(req, res));
 
-router.post('/', (req, res) => {
-    res.send(Comment.create({message: 'Wiadomość', author: 'Autor'}));
-});
+router.post('/', (req, res) => comments.create(req, res));
 
 module.exports = router;
