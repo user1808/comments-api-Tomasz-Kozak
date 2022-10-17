@@ -8,7 +8,7 @@ exports.findAll = (req, res) => {
 
 exports.create = (req, res) => {
     if (typeof req.body.message !== 'string') {
-        res.status(400).send({ message: 'Comment must have be text' });
+        res.status(400).send({ message: 'Comment must be a text' });
         return;
     }
 
