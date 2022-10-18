@@ -8,13 +8,13 @@ exports.findAll = (req, res) => {
 }
 
 exports.create = (req, res) => {
-    if (typeof req.body.message !== 'string') {
-        res.status(400).send({ message: 'Comment must be a text' });
+    if (typeof req.body.message !== 'string' || req.body.message.length === 0) {
+        res.status(400).send({ message: 'Comment is required and must be a text' });
         return;
     }
 
-    if (typeof req.body.author !== 'string') {
-        res.status(400).send({ message: 'Author name must be a string' });
+    if (typeof req.body.author !== 'string' || req.body.author.length === 0) {
+        res.status(400).send({ message: 'Author name is required and must be a string' });
         return;
     }
 
